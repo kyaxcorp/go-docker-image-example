@@ -1,7 +1,9 @@
 package main
 
 import (
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -69,5 +71,10 @@ func setupRouter() *gin.Engine {
 func main() {
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+
+	//fullAddress := os.Getenv("HTTP_LISTENING_ADDR")
+	port := os.Getenv("LISTENING_PORT")
+	//log.Println("listening on -> ", fullAddress)
+	log.Println("listening on -> ", port)
+	r.Run(":" + port)
 }

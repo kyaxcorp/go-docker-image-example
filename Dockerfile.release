@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
 
+# https://docs.docker.com/engine/reference/builder/
+# https://docs.docker.com/language/golang/build-images/#prerequisites
+
 ##
 ## Build
 ##
@@ -20,14 +23,15 @@ RUN go build -o /go-docker-image-example
 ## Deploy
 ##
 
-FROM gcr.io/distroless/base-debian10
+#FROM gcr.io/distroless/base-debian10
+FROM rockylinux:9
 
 WORKDIR /
 
 COPY --from=build /go-docker-image-example /go-docker-image-example
 
-EXPOSE 8080
+#EXPOSE 8080
 
-USER nonroot:nonroot
+#USER nonroot:nonroot
 
 ENTRYPOINT ["/go-docker-image-example"]
