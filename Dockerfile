@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 
+# https://docs.docker.com/engine/reference/builder/
 # https://docs.docker.com/language/golang/build-images/#prerequisites
 
 # Select the starting docker image
